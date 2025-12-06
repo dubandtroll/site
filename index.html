@@ -1,1 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dub & Troll | Official Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Dub & Troll is the husband and wife songwriting duo behind Christmas Across America, a fifty state, fifty song holiday adventure filled with quirky, feel good pop.">
+  <meta name="keywords" content="Dub and Troll, Dub & Troll, Christmas Across America, pop duo, husband and wife band, indie pop, Christmas songs, state Christmas songs, holiday music">
+  <style>
+    :root {
+      --bg-main: #0c0c1a;
+      --bg-alt: #141428;
+      --accent: #ff6e61;
+      --accent-soft: #ffb09f;
+      --text-main: #ffffff;
+      --text-muted: #c7c7d9;
+      --border-subtle: rgba(255,255,255,0.08);
+      --max-width: 1100px;
+    }
 
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #252546 0, #050510 50%, #02020a 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Layout */
+
+    .page-wrap {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    section {
+      padding: 4rem 0;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    section:first-of-type {
+      border-top: none;
+    }
+
+    .section-header {
+      margin-bottom: 2rem;
+    }
+
+    .section-title {
+      font-size: 1.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-soft);
+      margin-bottom: 0.4rem;
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      max-width: 550px;
+    }
+
+    /* Nav */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: linear-gradient(to bottom, rgba(2,2,10,0.94), rgba(2,2,10,0.88), rgba(2,2,10,0));
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.8rem 1.5rem;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .brand {
+      display: flex;
+      align-items: baseline;
+      gap: 0.35rem;
+    }
+
+    .brand-name {
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand-tag {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .nav-links a {
+      position: relative;
+      color: var(--text-muted);
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.25rem;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.18s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-main);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-toggle {
+      display: none;
+      cursor: pointer;
+      font-size: 1.3rem;
+    }
+
+    /* Hero */
+
+    #hero {
+      padding: 4.5rem 0 4rem;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-kicker {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent-soft);
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.4rem, 4vw, 3rem);
+      line-height: 1.1;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-tagline {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 480px;
+      margin-bottom: 1.7rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.7rem 1.4rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease, border-color 0.12s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: radial-gradient(circle at top left, #ffb09f, #ff6e61);
+      color: #140909;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.55);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.7);
+    }
+
+    .btn-outline {
+      border-color: rgba(255,255,255,0.4);
+      color: var(--text-main);
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.08);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .hero-meta-block {
+      max-width: 220px;
+    }
+
+    .hero-meta-label {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.7rem;
+      margin-bottom: 0.25rem;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .hero-art {
+      position: relative;
+    }
+
+    .hero-art-card {
+      border-radius: 1.2rem;
+      overflow: hidden;
+      background: linear-gradient(135deg, #1a1a38, #353563);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.75);
+      padding: 1rem;
+    }
+
+    .hero-art-inner {
+      border-radius: 0.9rem;
+      overflow: hidden;
+      background: radial-gradient(circle at top, #ffb09f 0, #ff6e61 38%, #141428 100%);
+      aspect-ratio: 4 / 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #1b0e0e;
+      font-weight: 700;
+      font-size: 1.2rem;
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .hero-floating-tag {
+      position: absolute;
+      right: 0;
+      bottom: -1.6rem;
+      background: rgba(5,5,18,0.95);
+      border-radius: 999px;
+      padding: 0.45rem 1rem;
+      font-size: 0.8rem;
+      border: 1px solid rgba(255,255,255,0.14);
+      color: var(--text-muted);
+    }
+
+    /* Music */
+
+    .music-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+      gap: 2.25rem;
+      align-items: flex-start;
+    }
+
+    .album-card {
+      background: var(--bg-alt);
+      border-radius: 1.1rem;
+      padding: 1.4rem;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .album-header {
+      display: flex;
+      gap: 1.1rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .album-cover {
+      width: 96px;
+      height: 96px;
+      border-radius: 0.7rem;
+      background: radial-gradient(circle at top left, #ffb09f, #ff6e61);
+      overflow: hidden;
+    }
+
+    .album-meta-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .album-meta-tag {
+      font-size: 0.8rem;
+      color: var(--accent-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.2rem;
+    }
+
+    .album-description {
+      font-size: 0.93rem;
+      color: var(--text-muted);
+      margin-bottom: 0.9rem;
+    }
+
+    .embed-frame {
+      width: 100%;
+      border-radius: 0.7rem;
+      border: none;
+      overflow: hidden;
+      background: #000;
+      min-height: 232px;
+    }
+
+    .music-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.8rem;
+    }
+
+    .pill {
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+    }
+
+    .music-list {
+      display: grid;
+      gap: 0.9rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .music-item-title {
+      font-weight: 500;
+      color: var(--text-main);
+    }
+
+    /* Bio */
+
+    .bio-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: flex-start;
+    }
+
+    .bio-text p {
+      margin-bottom: 0.9rem;
+      font-size: 0.96rem;
+      color: var(--text-muted);
+    }
+
+    details {
+      background: rgba(255,255,255,0.02);
+      border-radius: 0.8rem;
+      border: 1px solid var(--border-subtle);
+      padding: 0.8rem 1rem;
+      margin-top: 0.7rem;
+    }
+
+    summary {
+      cursor: pointer;
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent-soft);
+    }
+
+    details p {
+      margin-top: 0.7rem;
+      font-size: 0.92rem;
+    }
+
+    .bio-aside {
+      background: rgba(255,255,255,0.03);
+      border-radius: 1rem;
+      padding: 1rem 1.2rem;
+      border: 1px solid var(--border-subtle);
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .bio-aside strong {
+      color: var(--accent-soft);
+      font-weight: 600;
+    }
+
+    /* Photos */
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    .photo-tile {
+      position: relative;
+      border-radius: 0.9rem;
+      overflow: hidden;
+      background: linear-gradient(135deg, #1c1c32, #353563);
+      min-height: 140px;
+    }
+
+    .photo-tile span {
+      position: absolute;
+      left: 0.8rem;
+      bottom: 0.8rem;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.86);
+      text-shadow: 0 0 8px rgba(0,0,0,0.9);
+    }
+
+    /* Videos */
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .video-card {
+      background: var(--bg-alt);
+      border-radius: 1rem;
+      padding: 0.9rem;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .video-frame {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 0.7rem;
+      border: none;
+      overflow: hidden;
+      background: #000;
+      margin-bottom: 0.6rem;
+    }
+
+    .video-title {
+      font-size: 0.95rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .video-desc {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+    }
+
+    /* Tour */
+
+    .tour-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    .tour-table th,
+    .tour-table td {
+      padding: 0.6rem 0.3rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .tour-table th {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-align: left;
+    }
+
+    .tour-table td {
+      color: var(--text-main);
+    }
+
+    .tour-note {
+      margin-top: 0.8rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Mailing list */
+
+    .mailing-card {
+      background: var(--bg-alt);
+      border-radius: 1.1rem;
+      padding: 1.5rem;
+      border: 1px solid var(--border-subtle);
+      display: grid;
+      gap: 1rem;
+    }
+
+    .mailing-text {
+      font-size: 0.94rem;
+      color: var(--text-muted);
+      max-width: 480px;
+    }
+
+    .mailing-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      align-items: center;
+    }
+
+    .input {
+      padding: 0.6rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(3,3,18,0.9);
+      color: var(--text-main);
+      min-width: 220px;
+      flex: 1;
+      font-size: 0.9rem;
+    }
+
+    .input::placeholder {
+      color: rgba(255,255,255,0.45);
+    }
+
+    /* Contact */
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .link-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      font-size: 0.88rem;
+    }
+
+    .link-pill {
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(255,255,255,0.02);
+      color: var(--text-muted);
+    }
+
+    .link-pill strong {
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 1.5rem 0 2rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    footer .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.7rem;
+      align-items: center;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 900px) {
+      .hero-inner,
+      .music-grid,
+      .bio-layout,
+      .video-grid,
+      .contact-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-art {
+        order: -1;
+      }
+
+      .photo-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav-links {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        right: 1.5rem;
+        top: 3rem;
+        background: rgba(5,5,18,0.98);
+        padding: 0.7rem 0.9rem;
+        border-radius: 0.7rem;
+        border: 1px solid rgba(255,255,255,0.09);
+      }
+
+      .hero-inner {
+        gap: 2.4rem;
+      }
+
+      .hero-meta {
+        gap: 0.9rem;
+      }
+
+      section {
+        padding: 3.2rem 0;
+      }
+
+      .photo-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+    <header>
+      <nav class="nav">
+        <div class="brand">
+          <div class="brand-name">Dub &amp; Troll</div>
+          <div class="brand-tag">Quirky pop duo</div>
+        </div>
+        <div class="nav-links" id="navLinks">
+          <a href="#music">Music</a>
+          <a href="#bio">Bio</a>
+          <a href="#photos">Photos</a>
+          <a href="#videos">Videos</a>
+          <a href="#tour">Shows</a>
+          <a href="#mailing">Mailing list</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="nav-toggle" id="navToggle">☰</div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section id="hero">
+        <div class="container">
+          <div class="hero-inner">
+            <div>
+              <div class="hero-kicker">Husband and wife songwriting duo</div>
+              <h1 class="hero-title">Dub &amp; Troll</h1>
+              <p class="hero-tagline">
+                Quirky, feel good pop born from everyday chaos, cross country stories, and late night inspiration.
+              </p>
+              <div class="hero-buttons">
+                <a class="btn btn-primary" href="https://open.spotify.com/artist/6875fMGQ2v61jJLpEcojSX" target="_blank" rel="noopener noreferrer">
+                  Listen on Spotify
+                </a>
+                <a class="btn btn-outline" href="https://www.youtube.com/@DubAndTroll" target="_blank" rel="noopener noreferrer">
+                  Watch on YouTube
+                </a>
+                <a class="btn btn-outline" href="#music">
+                  Explore Christmas Across America
+                </a>
+              </div>
+              <div class="hero-meta">
+                <div class="hero-meta-block">
+                  <div class="hero-meta-label">Debut project</div>
+                  <div>Christmas Across America. Fifty states. Fifty original Christmas songs.</div>
+                </div>
+                <div class="hero-meta-block">
+                  <div class="hero-meta-label">For listeners who</div>
+                  <div>Like to smile, dance, think, and feel everything in between.</div>
+                </div>
+              </div>
+            </div>
+            <div class="hero-art">
+              <div class="hero-art-card">
+                <div class="hero-art-inner">
+                  <!-- Replace this with your real cover art image if you want -->
+                  <!-- Example: <img src="images/christmas-across-america.jpg" alt="Christmas Across America cover"> -->
+                  Christmas Across America<br>
+                  50 state Christmas songs
+                </div>
+              </div>
+              <div class="hero-floating-tag">
+                Songs and videos written, shot, and produced by Dub &amp; Troll.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Music -->
+      <section id="music">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Music</h2>
+            <p class="section-subtitle">
+              Stream Christmas Across America and explore the growing catalog of Dub &amp; Troll songs.
+            </p>
+          </div>
+
+          <div class="music-grid">
+            <div class="album-card">
+              <div class="album-header">
+                <div class="album-cover">
+                  <!-- Replace with album cover image -->
+                  <!-- <img src="images/christmas-across-america.jpg" alt="Christmas Across America"> -->
+                </div>
+                <div>
+                  <div class="album-meta-tag">Album project</div>
+                  <div class="album-meta-title">Christmas Across America</div>
+                  <div class="pill" style="margin-top:0.25rem;">50 state holiday songs</div>
+                </div>
+              </div>
+              <p class="album-description">
+                Christmas Across America is a nationwide holiday adventure. Fifty original songs,
+                one for every state, each one capturing its own mix of traditions, scenery, and personality from snowy mountain towns to warm coastal nights.
+              </p>
+
+              <!-- Spotify embed -->
+              <!-- Replace src with the embed link for your album or playlist -->
+              <iframe
+                class="embed-frame"
+                src="https://open.spotify.com/embed/artist/6875fMGQ2v61jJLpEcojSX"
+                loading="lazy"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+              </iframe>
+
+              <div class="music-links">
+                <a class="btn btn-outline" href="https://open.spotify.com/artist/6875fMGQ2v61jJLpEcojSX" target="_blank" rel="noopener noreferrer">
+                  Open on Spotify
+                </a>
+                <a class="btn btn-outline" href="https://www.youtube.com/@DubAndTroll" target="_blank" rel="noopener noreferrer">
+                  View YouTube playlist
+                </a>
+              </div>
+            </div>
+
+            <div class="music-list">
+              <div>
+                <div class="music-item-title">State songs to explore</div>
+                <p>Cold, Cold Iowa. IYKYK Chicago. Arizona Christmas Desert Lights. Colorado Christmas. It is Yooper Christmas Time. Holiday Smooth. This Is Idaho. And many more.</p>
+              </div>
+              <div>
+                <div class="music-item-title">Where to listen</div>
+                <p>
+                  All Dub &amp; Troll music is available on Spotify and YouTube, with more platforms coming soon. Save your favorite state tracks, share them with friends, and build your own Christmas Across America playlist.
+                </p>
+              </div>
+              <div>
+                <div class="music-item-title">Suggested listening</div>
+                <p>
+                  Put the album on shuffle while you decorate, road trip, or cook for the holidays and let each state surprise you with its own sound and story.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bio -->
+      <section id="bio">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">About Dub &amp; Troll</h2>
+            <p class="section-subtitle">
+              A husband and wife duo turning everyday chaos into bold, playful, and wonderfully unordinary pop.
+            </p>
+          </div>
+
+          <div class="bio-layout">
+            <div class="bio-text">
+              <!-- Short bio -->
+              <p>
+                Dub &amp; Troll is a husband and wife songwriting duo creating quirky, feel good pop inspired by family life, cross country stories, and late night ideas that refuse to wait until morning.
+              </p>
+
+              <!-- Medium + full bio in details -->
+              <details>
+                <summary>Read the full story</summary>
+                <p>
+                  Dub &amp; Troll is the husband and wife songwriting duo turning everyday moments, cross country stories, and late night inspiration into quirky, feel good pop. As parents of four, they are no strangers to chaos, creativity, or the magic that happens when you mix the two, so their music leans bold, playful, and wonderfully unordinary. Blending crisp modern production with a spark of experimental imagination, Dub &amp; Troll craft songs that feel both fresh and familiar, like classic melodies filtered through a new lens.
+                </p>
+                <p>
+                  Their debut project, Christ Across America, is a nationwide Christmas adventure. Fifty states, fifty original holiday songs, each one capturing the spirit, traditions, and personality of its home. From snowy mountain towns to warm coastal nights, the album travels everywhere, carrying the joy, humor, and heart that define the band sound.
+                </p>
+                <p>
+                  With a style that bounces between soulful storytelling and tongue in cheek fun, Dub &amp; Troll bring a creative chemistry only two lifelong partners can share. Their music videos, shot and produced entirely by the pair, blend cinematic energy with everyday charm, offering fans a window into the world they are building together.
+                </p>
+                <p>
+                  Dub &amp; Troll make music for people who love to smile, dance, think, and feel everything in between. This is a band built on curiosity, wonder, and the belief that creativity, no matter where it starts, can bring people together.
+                </p>
+              </details>
+            </div>
+
+            <aside class="bio-aside">
+              <strong>For press, playlists, and blogs</strong>
+              <p style="margin-top:0.4rem;">
+                You can pull the short or full bio from this page for writeups and features. For interviews, quotes, or custom assets, reach out through the contact section below.
+              </p>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- Photos -->
+      <section id="photos">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Photos</h2>
+            <p class="section-subtitle">
+              A glimpse into the world of Dub &amp; Troll from studio nights to Christmas Across America moments.
+            </p>
+          </div>
+
+          <div class="photo-grid">
+            <!-- Replace these with real image tags -->
+            <div class="photo-tile">
+              <!-- <img src="images/photo1.jpg" alt="Dub & Troll in the studio"> -->
+              <span>In the studio tracking a new state song</span>
+            </div>
+            <div class="photo-tile">
+              <!-- <img src="images/photo2.jpg" alt="Christmas Across America artwork"> -->
+              <span>Christmas Across America artwork session</span>
+            </div>
+            <div class="photo-tile">
+              <!-- <img src="images/photo3.jpg" alt="On location shooting a video"> -->
+              <span>On location filming a music video</span>
+            </div>
+            <div class="photo-tile">
+              <!-- <img src="images/photo4.jpg" alt="Songwriting at home"> -->
+              <span>Late night songwriting at home</span>
+            </div>
+            <div class="photo-tile">
+              <!-- <img src="images/photo5.jpg" alt="Family and band life"> -->
+              <span>Balancing band life and family life</span>
+            </div>
+            <div class="photo-tile">
+              <!-- <img src="images/photo6.jpg" alt="Live performance"> -->
+              <span>Live performance snapshot</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Videos -->
+      <section id="videos">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Videos</h2>
+            <p class="section-subtitle">
+              All videos are written, shot, and produced by Dub &amp; Troll, blending cinematic energy with everyday charm.
+            </p>
+          </div>
+
+          <div class="video-grid">
+            <div class="video-card">
+              <!-- Replace src with a real YouTube embed link -->
+              <iframe
+                class="video-frame"
+                src="https://www.youtube.com/embed/VIDEO_ID_1"
+                title="Dub &amp; Troll music video"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+              <div class="video-title">Featured state song video</div>
+              <div class="video-desc">
+                A Christmas Across America track brought to life with home grown visuals and storytelling.
+              </div>
+            </div>
+
+            <div class="video-card">
+              <iframe
+                class="video-frame"
+                src="https://www.youtube.com/embed/VIDEO_ID_2"
+                title="Dub &amp; Troll music video"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+              <div class="video-title">Behind the project</div>
+              <div class="video-desc">
+                A look at how Dub &amp; Troll approach writing, arranging, and producing songs as a team.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tour -->
+      <section id="tour">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Shows</h2>
+            <p class="section-subtitle">
+              Upcoming live sets, special events, and Christmas Across America appearances.
+            </p>
+          </div>
+
+          <div class="table-wrap">
+            <table class="tour-table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>City</th>
+                  <th>Venue</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Dec 3</td>
+                  <td>Louisville, KY</td>
+                  <td>The Listening Room</td>
+                </tr>
+                <tr>
+                  <td>Dec 10</td>
+                  <td>Nashville, TN</td>
+                  <td>Holiday Pop Night</td>
+                </tr>
+                <tr>
+                  <td>Dec 17</td>
+                  <td>Cincinnati, OH</td>
+                  <td>Snowflake Stage</td>
+                </tr>
+                <tr>
+                  <td>Jan 14</td>
+                  <td>Lexington, KY</td>
+                  <td>Winter Lights Fest</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="tour-note">
+              Dates above are sample placeholders. Update this section as new shows are confirmed or when you are ready to add real tour information.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Mailing list -->
+      <section id="mailing">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Mailing list</h2>
+            <p class="section-subtitle">
+              Get updates when new state songs drop, videos go live, and Christmas Across America events are announced.
+            </p>
+          </div>
+
+          <div class="mailing-card">
+            <p class="mailing-text">
+              Join the Dub &amp; Troll mailing list for first looks at new music, behind the scenes stories from the project, and occasional family powered chaos from the duo behind the songs.
+            </p>
+            <!-- For a real mailing list, replace this form with your email service embed (Mailchimp, ConvertKit, etc.) -->
+            <form class="mailing-form" action="https://example.com/your-mailing-list-endpoint" method="post">
+              <input class="input" type="email" name="email" placeholder="Your email address" required>
+              <button class="btn btn-primary" type="submit">Join the list</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Contact</h2>
+            <p class="section-subtitle">
+              Booking, collaborations, playlist features, or just a note to say you found your state song.
+            </p>
+          </div>
+
+          <div class="contact-layout">
+            <div>
+              <p style="color:var(--text-muted); margin-bottom:1rem;">
+                For booking, press, or creative collaboration, start with email. For casual conversation and quick updates, connect on social platforms.
+              </p>
+              <div class="hero-buttons" style="margin-bottom:0;">
+                <a class="btn btn-primary" href="mailto:yourname@yourdomain.com">
+                  Email Dub &amp; Troll
+                </a>
+                <a class="btn btn-outline" href="https://www.youtube.com/@DubAndTroll" target="_blank" rel="noopener noreferrer">
+                  Visit YouTube
+                </a>
+              </div>
+            </div>
+            <div>
+              <div class="link-list">
+                <a class="link-pill" href="https://open.spotify.com/artist/6875fMGQ2v61jJLpEcojSX" target="_blank" rel="noopener noreferrer">
+                  <strong>Spotify</strong> artist page
+                </a>
+                <a class="link-pill" href="https://www.youtube.com/@DubAndTroll" target="_blank" rel="noopener noreferrer">
+                  <strong>YouTube</strong> channel
+                </a>
+                <!-- Add more when ready -->
+                <!--
+                <a class="link-pill" href="#" target="_blank" rel="noopener noreferrer">
+                  <strong>Instagram</strong> profile
+                </a>
+                <a class="link-pill" href="#" target="_blank" rel="noopener noreferrer">
+                  <strong>Facebook</strong> page
+                </a>
+                -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div>© <span id="year"></span> Dub &amp; Troll. All rights reserved.</div>
+        <div>Christmas Across America · Fifty states. Fifty songs.</div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // mobile nav toggle
+    const navToggle = document.getElementById("navToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    navToggle.addEventListener("click", function () {
+      navLinks.classList.toggle("open");
+    });
+
+    // footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
