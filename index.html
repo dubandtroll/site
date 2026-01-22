@@ -1,883 +1,648 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Dub & Troll | Official Website</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Dub & Troll is the husband and wife songwriting duo behind Christmas Across America, a fifty state, fifty song holiday adventure filled with quirky, feel good pop.">
-  <meta name="keywords" content="Dub and Troll, Dub & Troll, Christmas Across America, pop duo, husband and wife band, indie pop, Christmas songs, state Christmas songs, holiday music">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <title>Dub and Troll | Links</title>
   <style>
-    :root {
-      --bg-main: #0c0c1a;
-      --bg-alt: #141428;
-      --accent: #ff6e61;
-      --accent-soft: #ffb09f;
-      --text-main: #ffffff;
-      --text-muted: #c7c7d9;
-      --border-subtle: rgba(255,255,255,0.08);
-      --max-width: 1100px;
+    :root{
+      --bg-0:#14060a;
+      --bg-1:#22070d;
+      --bg-2:#2b0a12;
+      --card:#1a070cdd;
+      --card-strong:#20080fef;
+      --gold:#f3d28a;
+      --gold-2:#d8b463;
+      --text:#f6efe3;
+      --muted:#d9c7ab;
+      --line:rgba(243,210,138,.22);
+      --shadow: 0 16px 40px rgba(0,0,0,.55);
+      --shadow-soft: 0 10px 22px rgba(0,0,0,.35);
+      --radius: 22px;
+      --radius-lg: 28px;
+      --max: 460px;
+      --tap: 0.985;
+      --ring: 0 0 0 3px rgba(243,210,138,.26), 0 0 0 1px rgba(0,0,0,.7);
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
     }
 
-    * {
-      box-sizing: border-box;
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: var(--font);
+      color: var(--text);
+      background: var(--bg-0);
+      overflow-x:hidden;
+    }
+
+    /* Background image + maroon overlay + subtle vignette */
+    .bg{
+      position:fixed;
+      inset:0;
+      z-index:-3;
+      background:
+        linear-gradient(180deg, rgba(20,6,10,.82), rgba(20,6,10,.90)),
+        radial-gradient(1200px 700px at 50% 20%, rgba(243,210,138,.10), transparent 55%),
+        radial-gradient(900px 600px at 30% 65%, rgba(243,210,138,.07), transparent 60%),
+        radial-gradient(800px 520px at 80% 70%, rgba(243,210,138,.06), transparent 60%),
+        url("background.jpg") center/cover no-repeat;
+      filter:saturate(1.05) contrast(1.05);
+    }
+
+    .vignette{
+      position:fixed;
+      inset:-2px;
+      z-index:-2;
+      pointer-events:none;
+      background:
+        radial-gradient(1100px 720px at 50% 25%, transparent 52%, rgba(0,0,0,.55) 100%),
+        linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.58));
+      mix-blend-mode: multiply;
+    }
+
+    /* Sparkle bokeh layer (CSS only, light-weight) */
+    .bokeh{
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      pointer-events:none;
+      opacity:.75;
+      background:
+        radial-gradient(10px 10px at 12% 22%, rgba(243,210,138,.35), transparent 60%),
+        radial-gradient(14px 14px at 78% 18%, rgba(243,210,138,.25), transparent 62%),
+        radial-gradient(18px 18px at 62% 46%, rgba(243,210,138,.18), transparent 62%),
+        radial-gradient(12px 12px at 28% 58%, rgba(243,210,138,.18), transparent 62%),
+        radial-gradient(9px 9px at 88% 64%, rgba(243,210,138,.22), transparent 62%),
+        radial-gradient(16px 16px at 16% 78%, rgba(243,210,138,.16), transparent 62%),
+        radial-gradient(10px 10px at 72% 86%, rgba(243,210,138,.14), transparent 62%),
+        radial-gradient(8px 8px at 44% 84%, rgba(243,210,138,.18), transparent 62%);
+      filter: blur(.2px);
+    }
+
+    main{
+      min-height:100%;
+      display:flex;
+      justify-content:center;
+      padding: 22px 16px 28px;
+    }
+
+    .wrap{
+      width:100%;
+      max-width: var(--max);
+      display:flex;
+      flex-direction:column;
+      gap: 16px;
+      animation: rise .70s cubic-bezier(.2,.85,.2,1) both;
+    }
+
+    @keyframes rise{
+      from{opacity:0; transform: translateY(10px)}
+      to{opacity:1; transform: translateY(0)}
+    }
+
+    header{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+      gap: 12px;
+      padding-top: 6px;
+    }
+
+    .logo{
+      width:min(220px, 62vw);
+      height:auto;
+      display:block;
+      filter: drop-shadow(0 8px 20px rgba(0,0,0,.55));
+    }
+
+    .avatar{
+      width: 118px;
+      height: 118px;
+      border-radius: 999px;
+      object-fit: cover;
+      border: 1px solid rgba(243,210,138,.35);
+      box-shadow: var(--shadow-soft);
+      background: linear-gradient(180deg, rgba(243,210,138,.10), rgba(243,210,138,.02));
+    }
+
+    .name{
+      margin: 6px 0 0;
+      font-size: 28px;
+      letter-spacing: .4px;
+      line-height: 1.05;
+      font-weight: 780;
+      text-transform: none;
+    }
+
+    .tagline{
       margin: 0;
-      padding: 0;
+      max-width: 38ch;
+      color: var(--muted);
+      font-size: 14.6px;
+      line-height: 1.45;
+      font-weight: 520;
+      text-shadow: 0 10px 24px rgba(0,0,0,.35);
     }
 
-    html {
-      scroll-behavior: smooth;
+    /* Decorative music notes */
+    .notes{
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      opacity:.22;
+      filter: drop-shadow(0 12px 30px rgba(0,0,0,.45));
+    }
+    .note{
+      position:absolute;
+      color: rgba(243,210,138,.9);
+      transform: rotate(-8deg);
+    }
+    .note svg{width:26px;height:26px}
+    .note.n1{top: 18px; left: 12px; transform: rotate(-10deg)}
+    .note.n2{top: 64px; right: 10px; transform: rotate(8deg)}
+    .note.n3{bottom: 18px; left: 22px; transform: rotate(6deg)}
+
+    .card{
+      position:relative;
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      overflow:hidden;
     }
 
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #252546 0, #050510 50%, #02020a 100%);
-      color: var(--text-main);
-      line-height: 1.6;
+    .card-inner{
+      padding: 16px;
+      background:
+        radial-gradient(480px 240px at 30% 0%, rgba(243,210,138,.11), transparent 60%),
+        radial-gradient(520px 260px at 90% 30%, rgba(243,210,138,.08), transparent 60%),
+        linear-gradient(180deg, rgba(26,7,12,.72), rgba(26,7,12,.55));
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
+    .featured{
+      display:flex;
+      gap: 14px;
+      align-items:center;
     }
 
-    img {
-      max-width: 100%;
-      display: block;
+    .album{
+      width: 84px;
+      height: 84px;
+      border-radius: 18px;
+      border: 1px solid rgba(243,210,138,.28);
+      box-shadow: 0 14px 30px rgba(0,0,0,.55);
+      object-fit: cover;
+      background: rgba(0,0,0,.25);
+      flex: 0 0 auto;
     }
 
-    /* Layout */
-
-    .page-wrap {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+    .feat-meta{
+      flex: 1 1 auto;
+      min-width: 0;
     }
 
-    main {
-      flex: 1;
-    }
-
-    .container {
-      width: 100%;
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    section {
-      padding: 4rem 0;
-      border-top: 1px solid var(--border-subtle);
-    }
-
-    section:first-of-type {
-      border-top: none;
-    }
-
-    .section-header {
-      margin-bottom: 2rem;
-    }
-
-    .section-title {
-      font-size: 1.7rem;
-      letter-spacing: 0.08em;
+    .feat-kicker{
+      font-size: 12px;
+      letter-spacing: .12em;
       text-transform: uppercase;
-      color: var(--accent-soft);
-      margin-bottom: 0.4rem;
+      color: rgba(243,210,138,.82);
+      font-weight: 720;
+      margin: 0 0 6px;
     }
 
-    .section-subtitle {
-      color: var(--text-muted);
-      max-width: 550px;
+    .feat-title{
+      margin: 0;
+      font-weight: 780;
+      font-size: 16.5px;
+      line-height: 1.2;
     }
 
-    /* Nav */
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(12px);
-      background: linear-gradient(to bottom, rgba(2,2,10,0.94), rgba(2,2,10,0.88), rgba(2,2,10,0));
-      border-bottom: 1px solid rgba(255,255,255,0.04);
+    .feat-sub{
+      margin: 6px 0 0;
+      color: rgba(217,199,171,.9);
+      font-size: 13.6px;
+      line-height: 1.4;
+      max-width: 40ch;
     }
 
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.8rem 1.5rem;
-      max-width: var(--max-width);
-      margin: 0 auto;
-    }
-
-    .brand {
-      display: flex;
-      align-items: baseline;
-      gap: 0.35rem;
-    }
-
-    .brand-name {
-      font-weight: 700;
-      font-size: 1.2rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .brand-tag {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 1.25rem;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-    }
-
-    .nav-links a {
-      position: relative;
-      color: var(--text-muted);
-    }
-
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -0.25rem;
-      width: 0;
-      height: 2px;
-      background: var(--accent);
-      transition: width 0.18s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--text-main);
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    .nav-toggle {
-      display: none;
-      cursor: pointer;
-      font-size: 1.3rem;
-    }
-
-    /* Hero */
-
-    #hero {
-      padding: 4.5rem 0 4rem;
-    }
-
-    .hero-inner {
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
-      gap: 3rem;
-      align-items: center;
-    }
-
-    .hero-kicker {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--accent-soft);
-      margin-bottom: 0.6rem;
-    }
-
-    .hero-title {
-      font-size: clamp(2.4rem, 4vw, 3rem);
-      line-height: 1.1;
-      margin-bottom: 0.8rem;
-    }
-
-    .hero-tagline {
-      font-size: 1.05rem;
-      color: var(--text-muted);
-      max-width: 480px;
-      margin-bottom: 1.7rem;
-    }
-
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.85rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.7rem 1.4rem;
+    .primary{
+      margin-top: 12px;
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      text-decoration:none;
+      color: var(--bg-0);
+      font-weight: 780;
+      padding: 12px 14px;
       border-radius: 999px;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      border: 1px solid transparent;
-      cursor: pointer;
-      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease, border-color 0.12s ease;
-      white-space: nowrap;
+      border: 1px solid rgba(0,0,0,.35);
+      background:
+        linear-gradient(180deg, rgba(243,210,138,1), rgba(216,180,99,1));
+      box-shadow:
+        0 14px 28px rgba(0,0,0,.42),
+        inset 0 1px 0 rgba(255,255,255,.35);
+      transition: transform .18s ease, filter .18s ease, box-shadow .18s ease;
+      width: fit-content;
+      user-select:none;
+      -webkit-tap-highlight-color: transparent;
     }
 
-    .btn-primary {
-      background: radial-gradient(circle at top left, #ffb09f, #ff6e61);
-      color: #140909;
-      box-shadow: 0 8px 22px rgba(0,0,0,0.55);
+    .primary:active{
+      transform: scale(var(--tap));
+      filter: brightness(.98);
     }
 
-    .btn-primary:hover {
+    .primary:hover{
       transform: translateY(-1px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.7);
+      box-shadow:
+        0 18px 34px rgba(0,0,0,.48),
+        0 0 0 1px rgba(243,210,138,.22),
+        inset 0 1px 0 rgba(255,255,255,.38);
     }
 
-    .btn-outline {
-      border-color: rgba(255,255,255,0.4);
-      color: var(--text-main);
-      background: transparent;
+    nav{
+      display:flex;
+      flex-direction:column;
+      gap: 12px;
     }
 
-    .btn-outline:hover {
-      background: rgba(255,255,255,0.08);
+    .link{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      padding: 14px 14px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(243,210,138,.20);
+      text-decoration:none;
+      color: var(--text);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      box-shadow: 0 12px 24px rgba(0,0,0,.40);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease, background .18s ease, filter .18s ease;
+      user-select:none;
+      -webkit-tap-highlight-color: transparent;
+      position:relative;
+      overflow:hidden;
     }
 
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      font-size: 0.85rem;
-      color: var(--text-muted);
+    /* Warm highlight sweep */
+    .link::before{
+      content:"";
+      position:absolute;
+      inset:-1px;
+      background:
+        radial-gradient(520px 140px at 20% 0%, rgba(243,210,138,.14), transparent 55%),
+        radial-gradient(520px 140px at 95% 45%, rgba(243,210,138,.10), transparent 58%);
+      opacity:.9;
+      pointer-events:none;
     }
 
-    .hero-meta-block {
-      max-width: 220px;
+    .link:hover{
+      transform: translateY(-1px);
+      border-color: rgba(243,210,138,.34);
+      box-shadow: 0 18px 34px rgba(0,0,0,.48);
+      filter: saturate(1.02);
     }
 
-    .hero-meta-label {
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-size: 0.7rem;
-      margin-bottom: 0.25rem;
-      color: rgba(255,255,255,0.7);
+    .link:active{
+      transform: scale(var(--tap));
     }
 
-    .hero-art {
-      position: relative;
+    .link-left{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      min-width: 0;
     }
 
-    .hero-art-card {
-      border-radius: 1.2rem;
-      overflow: hidden;
-      background: linear-gradient(135deg, #1a1a38, #353563);
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.75);
-      padding: 1rem;
+    .icon{
+      width: 38px;
+      height: 38px;
+      border-radius: 14px;
+      border: 1px solid rgba(243,210,138,.22);
+      background:
+        linear-gradient(180deg, rgba(243,210,138,.12), rgba(243,210,138,.03));
+      display:grid;
+      place-items:center;
+      flex: 0 0 auto;
+      box-shadow: 0 10px 18px rgba(0,0,0,.35);
     }
 
-    .hero-art-inner {
-      border-radius: 0.9rem;
-      overflow: hidden;
-      background: radial-gradient(circle at top, #ffb09f 0, #ff6e61 38%, #141428 100%);
-      aspect-ratio: 4 / 3;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #1b0e0e;
-      font-weight: 700;
-      font-size: 1.2rem;
-      text-align: center;
-      padding: 1.5rem;
+    .icon svg{
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: rgba(243,210,138,.92);
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
-    .hero-floating-tag {
-      position: absolute;
-      right: 0;
-      bottom: -1.6rem;
-      background: rgba(5,5,18,0.95);
+    .label{
+      display:flex;
+      flex-direction:column;
+      gap: 2px;
+      min-width: 0;
+    }
+
+    .label strong{
+      font-size: 15.4px;
+      font-weight: 760;
+      letter-spacing:.15px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow: ellipsis;
+    }
+
+    .label span{
+      font-size: 12.8px;
+      color: rgba(217,199,171,.92);
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow: ellipsis;
+    }
+
+    .chev{
+      width: 28px;
+      height: 28px;
       border-radius: 999px;
-      padding: 0.45rem 1rem;
-      font-size: 0.8rem;
-      border: 1px solid rgba(255,255,255,0.14);
-      color: var(--text-muted);
+      border: 1px solid rgba(243,210,138,.20);
+      background: rgba(0,0,0,.18);
+      display:grid;
+      place-items:center;
+      flex: 0 0 auto;
+      box-shadow: 0 10px 18px rgba(0,0,0,.28);
     }
 
-    /* Music */
-
-    .music-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
-      gap: 2.25rem;
-      align-items: flex-start;
+    .chev svg{
+      width: 16px;
+      height: 16px;
+      stroke: rgba(243,210,138,.95);
+      stroke-width: 2.2;
+      fill:none;
     }
 
-    .album-card {
-      background: var(--bg-alt);
-      border-radius: 1.1rem;
-      padding: 1.4rem;
-      border: 1px solid var(--border-subtle);
+    footer{
+      text-align:center;
+      color: rgba(217,199,171,.85);
+      font-size: 12.6px;
+      line-height: 1.45;
+      padding: 6px 6px 0;
+      text-shadow: 0 10px 24px rgba(0,0,0,.35);
     }
 
-    .album-header {
-      display: flex;
-      gap: 1.1rem;
-      margin-bottom: 1.1rem;
+    .tiny{
+      font-size: 11.6px;
+      color: rgba(217,199,171,.70);
+      margin-top: 6px;
     }
 
-    .album-cover {
-      width: 96px;
-      height: 96px;
-      border-radius: 0.7rem;
-      background: radial-gradient(circle at top left, #ffb09f, #ff6e61);
-      overflow: hidden;
+    /* Focus visible */
+    a:focus{outline:none}
+    a:focus-visible{
+      box-shadow: var(--ring);
+      border-color: rgba(243,210,138,.46) !important;
     }
 
-    .album-meta-title {
-      font-size: 1.1rem;
-      font-weight: 600;
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      .wrap{animation:none}
+      .link, .primary{transition:none}
+      .link:hover, .primary:hover{transform:none}
+      .link:active, .primary:active{transform:none}
     }
 
-    .album-meta-tag {
-      font-size: 0.8rem;
-      color: var(--accent-soft);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      margin-bottom: 0.2rem;
-    }
-
-    .album-description {
-      font-size: 0.93rem;
-      color: var(--text-muted);
-      margin-bottom: 0.9rem;
-    }
-
-    .embed-frame {
-      width: 100%;
-      border-radius: 0.7rem;
-      border: none;
-      overflow: hidden;
-      background: #000;
-      min-height: 232px;
-    }
-
-    .music-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-top: 0.8rem;
-    }
-
-    .pill {
-      padding: 0.3rem 0.7rem;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.05);
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--text-muted);
-    }
-
-    .music-list {
-      display: grid;
-      gap: 0.9rem;
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-
-    .music-item-title {
-      font-weight: 500;
-      color: var(--text-main);
-    }
-
-    /* Bio */
-
-    .bio-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-      gap: 2.5rem;
-      align-items: flex-start;
-    }
-
-    .bio-text p {
-      margin-bottom: 0.9rem;
-      font-size: 0.96rem;
-      color: var(--text-muted);
-    }
-
-    details {
-      background: rgba(255,255,255,0.02);
-      border-radius: 0.8rem;
-      border: 1px solid var(--border-subtle);
-      padding: 0.8rem 1rem;
-      margin-top: 0.7rem;
-    }
-
-    summary {
-      cursor: pointer;
-      font-size: 0.88rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--accent-soft);
-    }
-
-    details p {
-      margin-top: 0.7rem;
-      font-size: 0.92rem;
-    }
-
-    .bio-aside {
-      background: rgba(255,255,255,0.03);
-      border-radius: 1rem;
-      padding: 1rem 1.2rem;
-      border: 1px solid var(--border-subtle);
-      font-size: 0.86rem;
-      color: var(--text-muted);
-    }
-
-    .bio-aside strong {
-      color: var(--accent-soft);
-      font-weight: 600;
-    }
-
-    
-
-    /* Videos */
-
-    .video-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1.5rem;
-    }
-
-    .video-card {
-      background: var(--bg-alt);
-      border-radius: 1rem;
-      padding: 0.9rem;
-      border: 1px solid var(--border-subtle);
-    }
-
-    .video-frame {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      border-radius: 0.7rem;
-      border: none;
-      overflow: hidden;
-      background: #000;
-      margin-bottom: 0.6rem;
-    }
-
-    .video-title {
-      font-size: 0.95rem;
-      margin-bottom: 0.2rem;
-    }
-
-    .video-desc {
-      font-size: 0.83rem;
-      color: var(--text-muted);
-    }
-
-    
-
-   
-
-    /* Contact */
-
-    .contact-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 2rem;
-      align-items: flex-start;
-    }
-
-    .link-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      font-size: 0.88rem;
-    }
-
-    .link-pill {
-      padding: 0.4rem 0.9rem;
-      border-radius: 999px;
-      border: 1px solid var(--border-subtle);
-      background: rgba(255,255,255,0.02);
-      color: var(--text-muted);
-    }
-
-    .link-pill strong {
-      color: var(--text-main);
-      font-weight: 500;
-    }
-
-    footer {
-      border-top: 1px solid var(--border-subtle);
-      padding: 1.5rem 0 2rem;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    footer .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 0.7rem;
-      align-items: center;
-    }
-
-    /* Responsive */
-
-    @media (max-width: 900px) {
-      .hero-inner,
-      .music-grid,
-      .bio-layout,
-      .video-grid,
-      .contact-layout {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .hero-art {
-        order: -1;
-      }
-
-    
-    @media (max-width: 720px) {
-      .nav-links {
-        display: none;
-      }
-
-      .nav-toggle {
-        display: block;
-      }
-
-      .nav-links.open {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        right: 1.5rem;
-        top: 3rem;
-        background: rgba(5,5,18,0.98);
-        padding: 0.7rem 0.9rem;
-        border-radius: 0.7rem;
-        border: 1px solid rgba(255,255,255,0.09);
-      }
-
-      .hero-inner {
-        gap: 2.4rem;
-      }
-
-      .hero-meta {
-        gap: 0.9rem;
-      }
-
-      section {
-        padding: 3.2rem 0;
-      }
-
-      
+    /* Desktop polish */
+    @media (min-width: 720px){
+      main{padding: 34px 18px 40px}
+      .wrap{gap: 18px}
+      .name{font-size: 30px}
+      .tagline{font-size: 15px}
     }
   </style>
 </head>
+
 <body>
-  <div class="page-wrap">
-    <header>
-      <nav class="nav">
-        <div class="brand">
-          <div class="brand-name">Dub &amp; Troll</div>
-          <div class="brand-tag">Pop Music Duo</div>
+  <div class="bg" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="bokeh" aria-hidden="true"></div>
+
+  <main>
+    <div class="wrap">
+      <header>
+        <!-- REPLACE: Put your logo file next to this HTML and name it "logo.png". Recommended: 1200x400 (transparent PNG). -->
+        <img class="logo" src="logo.png" alt="Dub and Troll logo" />
+
+        <!-- REPLACE: Put your band photo next to this HTML and name it "band-photo.jpg". Recommended: 1200x1200 (square). -->
+        <img class="avatar" src="band-photo.jpg" alt="Dub and Troll band photo" />
+
+        <h1 class="name">Dub and Troll</h1>
+        <p class="tagline">Husband and wife duo turning everyday chaos into bold, playful, and wonderfully unordinary pop.</p>
+      </header>
+
+      <section class="card" aria-label="Latest release">
+        <div class="notes" aria-hidden="true">
+          <span class="note n1">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M9 18V5l12-2v13" stroke="currentColor" />
+              <circle cx="7" cy="18" r="3" stroke="currentColor"/>
+              <circle cx="19" cy="16" r="3" stroke="currentColor"/>
+            </svg>
+          </span>
+          <span class="note n2">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M10 20V7l10-2v13" stroke="currentColor" />
+              <circle cx="8" cy="20" r="3" stroke="currentColor"/>
+              <circle cx="18" cy="18" r="3" stroke="currentColor"/>
+            </svg>
+          </span>
+          <span class="note n3">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 19V6l12-2v13" stroke="currentColor" />
+              <circle cx="5" cy="19" r="3" stroke="currentColor"/>
+              <circle cx="17" cy="17" r="3" stroke="currentColor"/>
+            </svg>
+          </span>
         </div>
-        <div class="nav-links" id="navLinks">
-          <a href="#music">Music</a>
-          <a href="#bio">Bio</a>
-          <a href="#videos">Videos</a>
-          <a href="#contact">Contact</a>
+
+        <div class="card-inner">
+          <div class="featured">
+            <!-- REPLACE: Put your album art next to this HTML and name it "album-art.jpg". Recommended: 1600x1600 (square). -->
+            <img class="album" src="album-art.jpg" alt="Latest release album artwork" />
+            <div class="feat-meta">
+              <p class="feat-kicker">Latest Release</p>
+              <p class="feat-title">Your New Single Title</p>
+              <p class="feat-sub">One-tap listen. Add it to your rotation tonight.</p>
+
+              <!-- REPLACE: Change the href to your main smart link (Spotify, Linkfire, ToneDen, etc.). -->
+              <a class="primary" href="https://example.com/latest-release" target="_blank" rel="noopener">
+                <span>Listen Now</span>
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                  <path d="M5 12h12" stroke="rgba(20,6,10,.95)" stroke-width="2.2" stroke-linecap="round"/>
+                  <path d="M13 6l6 6-6 6" stroke="rgba(20,6,10,.95)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="nav-toggle" id="navToggle">☰</div>
+      </section>
+
+      <nav aria-label="Listen and follow links">
+        <a class="link" href="https://example.com/spotify" target="_blank" rel="noopener" aria-label="Listen on Spotify">
+          <div class="link-left">
+            <div class="icon" aria-hidden="true" title="Spotify">
+              <!-- Spotify (simplified) -->
+              <svg viewBox="0 0 24 24">
+                <path d="M7 15.5c3.7-1 7.3-.8 10.6.6" />
+                <path d="M7.8 12.5c3-0.8 6.2-0.6 9 .6" />
+                <path d="M8.7 9.8c2.4-0.6 4.8-0.4 6.8.5" />
+                <path d="M12 21a9 9 0 1 0 0-18a9 9 0 0 0 0 18z" />
+              </svg>
+            </div>
+            <div class="label">
+              <strong>Listen on Spotify</strong>
+              <span>Tap to stream</span>
+            </div>
+          </div>
+          <div class="chev" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>
+          </div>
+        </a>
+
+        <a class="link" href="https://example.com/youtube" target="_blank" rel="noopener" aria-label="Watch on YouTube">
+          <div class="link-left">
+            <div class="icon" aria-hidden="true" title="YouTube">
+              <!-- YouTube -->
+              <svg viewBox="0 0 24 24">
+                <path d="M21 12s0-3.4-.5-5.1c-.3-1.1-1.2-2-2.3-2.2C16.4 4.3 12 4.3 12 4.3s-4.4 0-6.2.4c-1.1.2-2 .9-2.3 2.1C3 8.6 3 12 3 12s0 3.4.5 5.1c.3 1.1 1.2 2 2.3 2.2 1.8.4 6.2.4 6.2.4s4.4 0 6.2-.4c1.1-.2 2-.9 2.3-2.1.5-1.7.5-5.1.5-5.1z"/>
+                <path d="M10.2 9.7v4.6L14.6 12l-4.4-2.3z"/>
+              </svg>
+            </div>
+            <div class="label">
+              <strong>Watch on YouTube</strong>
+              <span>Latest videos</span>
+            </div>
+          </div>
+          <div class="chev" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>
+          </div>
+        </a>
+
+        <a class="link" href="https://example.com/apple" target="_blank" rel="noopener" aria-label="Listen on Apple Music">
+          <div class="link-left">
+            <div class="icon" aria-hidden="true" title="Apple Music">
+              <!-- Apple Music note -->
+              <svg viewBox="0 0 24 24">
+                <path d="M14 4v11.2" />
+                <path d="M14 6l6-1v10.2" />
+                <circle cx="11" cy="18" r="3" />
+                <circle cx="18" cy="16.8" r="3" />
+              </svg>
+            </div>
+            <div class="label">
+              <strong>Listen on Apple Music</strong>
+              <span>Play it loud</span>
+            </div>
+          </div>
+          <div class="chev" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>
+          </div>
+        </a>
+
+        <a class="link" href="https://example.com/tiktok" target="_blank" rel="noopener" aria-label="Follow on TikTok">
+          <div class="link-left">
+            <div class="icon" aria-hidden="true" title="TikTok">
+              <!-- TikTok (stylized note) -->
+              <svg viewBox="0 0 24 24">
+                <path d="M14 4v10.2a3.6 3.6 0 1 1-3.2-3.6" />
+                <path d="M14 6c1.1 1.9 2.6 3 5 3.3" />
+                <path d="M10.8 10.8v7.1" />
+              </svg>
+            </div>
+            <div class="label">
+              <strong>Follow on TikTok</strong>
+              <span>Clips and chaos</span>
+            </div>
+          </div>
+          <div class="chev" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>
+          </div>
+        </a>
+
+        <a class="link" href="https://example.com/amazon" target="_blank" rel="noopener" aria-label="Listen on Amazon Music">
+          <div class="link-left">
+            <div class="icon" aria-hidden="true" title="Amazon Music">
+              <!-- Amazon Music (smile + note) -->
+              <svg viewBox="0 0 24 24">
+                <path d="M14 5v10.5" />
+                <circle cx="12" cy="18.2" r="3" />
+                <path d="M8 21c2.2-1.2 5.8-1.2 8 0" />
+              </svg>
+            </div>
+            <div class="label">
+              <strong>Listen on Amazon Music</strong>
+              <span>Stream anywhere</span>
+            </div>
+          </div>
+          <div class="chev" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>
+          </div>
+        </a>
+
+        <a class="link" href="https://example.com/website" target="_blank" rel="noopener" aria-label="Official Website">
+          <div class="link-left">
+            <div class="icon" aria-hidden="true" title="Website">
+              <!-- Globe -->
+              <svg viewBox="0 0 24 24">
+                <path d="M12 21a9 9 0 1 0 0-18a9 9 0 0 0 0 18z" />
+                <path d="M3 12h18" />
+                <path d="M12 3c2.8 2.7 2.8 15.3 0 18" />
+                <path d="M12 3c-2.8 2.7-2.8 15.3 0 18" />
+              </svg>
+            </div>
+            <div class="label">
+              <strong>Official Website</strong>
+              <span>Everything in one place</span>
+            </div>
+          </div>
+          <div class="chev" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>
+          </div>
+        </a>
       </nav>
-    </header>
 
-    <main>
-      <!-- Hero -->
-      <section id="hero">
-        <div class="container">
-          <div class="hero-inner">
-            <div>
-              <div class="hero-kicker">Husband and wife songwriting duo</div>
-              <h1 class="hero-title">Dub &amp; Troll</h1>
-              <p class="hero-tagline">
-                Quirky, feel good pop born from everyday chaos, cross country stories, and late night inspiration.
-              </p>
-              <div class="hero-buttons">
-                <a class="btn btn-primary" href="https://open.spotify.com/artist/6875fMGQ2v61jJLpEcojSX" target="_blank" rel="noopener noreferrer">
-                  Listen on Spotify
-                </a>
-                <a class="btn btn-outline" href="https://www.youtube.com/@DubAndTroll" target="_blank" rel="noopener noreferrer">
-                  Watch on YouTube
-                </a>
-                <a class="btn btn-outline" href="#music">
-                  Explore Christmas Across America
-                </a>
-              </div>
-              <div class="hero-meta">
-                <div class="hero-meta-block">
-                  <div class="hero-meta-label">Debut project</div>
-                  <div>Christmas Across America. Fifty states. Fifty original Christmas songs.</div>
-                </div>
-                <div class="hero-meta-block">
-                  <div class="hero-meta-label">For listeners who</div>
-                  <div>Like to smile, dance, think, and feel everything in between.</div>
-                </div>
-              </div>
-            </div>
-            <div class="hero-art">
-              <div class="hero-art-card">
-                <div class="hero-art-inner">
-                  <!-- Replace this with your real cover art image if you want -->
-                  <img src="Album-Cover.jpg" alt="Christmas Across America cover">
-                                  </div>
-              </div>
-              <div class="hero-floating-tag">
-                Christmas Across America. Fifty states. Fifty original holiday songs.
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Music -->
-      <section id="music">
-        <div class="container">
-          <div class="section-header">
-            <h2 class="section-title">Music</h2>
-            <p class="section-subtitle">
-              Stream Christmas Across America and explore the growing catalog of Dub &amp; Troll songs.
-            </p>
-          </div>
-
-          <div class="music-grid">
-            <div class="album-card">
-              <div class="album-header">
-                <div class="album-cover">
-                  <!-- Replace with album cover image -->
-                  <img src="Album-Cover.jpg" alt="Christmas Across America">
-                </div>
-                <div>
-                  <div class="album-meta-tag">Album project</div>
-                  <div class="album-meta-title">Christmas Across America</div>
-                  <div class="pill" style="margin-top:0.25rem;">50 state holiday songs</div>
-                </div>
-              </div>
-              <p class="album-description">
-                Christmas Across America is a nationwide holiday adventure. Fifty original songs,
-                one for every state, each one capturing its own mix of traditions, scenery, and personality from snowy mountain towns to warm coastal nights.
-              </p>
-
-              <!-- Spotify embed -->
-              <!-- Replace src with the embed link for your album or playlist -->
-              <iframe
-                class="embed-frame"
-                src="https://open.spotify.com/embed/playlist/0JhagZvih50b0Pcd83Svyd"
-                loading="lazy"
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-              </iframe>
-
-              <div class="music-links">
-                <a class="btn btn-outline" href="https://open.spotify.com/artist/6875fMGQ2v61jJLpEcojSX" target="_blank" rel="noopener noreferrer">
-                  Open on Spotify
-                </a>
-                <a class="btn btn-outline" href="https://www.youtube.com/@DubAndTroll" target="_blank" rel="noopener noreferrer">
-                  View YouTube playlist
-                </a>
-              </div>
-            </div>
-
-            <div class="music-list">
-              <div>
-                <div class="music-item-title">State songs to explore</div>
-                <p>West Coast Holiday. IYKYK Chicago. No Snow, No Stress. Holiday Smooth. Show-Me Christmas. Holiday Smooth. This Is Idaho. And many more.</p>
-              </div>
-              <div>
-                <div class="music-item-title">Where to listen</div>
-                <p>
-                  All Dub &amp; Troll music is available on Spotify and YouTube, with more platforms coming soon. Save your favorite state tracks, share them with friends, and build your own Christmas Across America playlist.
-                </p>
-              </div>
-              <div>
-                <div class="music-item-title">Suggested listening</div>
-                <p>
-                  Put the album on shuffle while you decorate, road trip, or cook for the holidays and let each state surprise you with its own sound and story.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Bio -->
-      <section id="bio">
-        <div class="container">
-          <div class="section-header">
-            <h2 class="section-title">About Dub &amp; Troll</h2>
-            <p class="section-subtitle">
-              A husband and wife duo turning everyday chaos into bold, playful, and wonderfully unordinary pop.
-            </p>
-          </div>
-
-          <div class="bio-layout">
-            <div class="bio-text">
-              <!-- Short bio -->
-              <p>
-                Dub &amp; Troll is a husband and wife songwriting duo creating quirky, feel good pop inspired by family life, cross country stories, and late night ideas that refuse to wait until morning.
-              </p>
-
-              <!-- Medium + full bio in details -->
-              <details>
-                <summary>Read the full story</summary>
-                <p>
-                  Dub &amp; Troll is the husband and wife songwriting duo turning everyday moments, cross country stories, and late night inspiration into quirky, feel good pop. As parents of four, they are no strangers to chaos, creativity, or the magic that happens when you mix the two, so their music leans bold, playful, and wonderfully unordinary. Blending crisp modern production with a spark of experimental imagination, Dub &amp; Troll craft songs that feel both fresh and familiar, like classic melodies filtered through a new lens.
-                </p>
-                <p>
-                  Their debut project, Christ Across America, is a nationwide Christmas adventure. Fifty states, fifty original holiday songs, each one capturing the spirit, traditions, and personality of its home. From snowy mountain towns to warm coastal nights, the album travels everywhere, carrying the joy, humor, and heart that define the band sound.
-                </p>
-                <p>
-                  With a style that bounces between soulful storytelling and tongue in cheek fun, Dub &amp; Troll bring a creative chemistry only two lifelong partners can share. Their music videos, shot and produced entirely by the pair, blend cinematic energy with everyday charm, offering fans a window into the world they are building together.
-                </p>
-                <p>
-                  Dub &amp; Troll make music for people who love to smile, dance, think, and feel everything in between. This is a band built on curiosity, wonder, and the belief that creativity, no matter where it starts, can bring people together.
-                </p>
-              </details>
-            </div>
-
-            <aside class="bio-aside">
-              <strong>For press, playlists, and blogs</strong>
-              <p style="margin-top:0.4rem;">
-                You can pull the short or full bio from this page for writeups and features. For interviews, quotes, or custom assets, reach out through the contact section below.
-              </p>
-            </aside>
-          </div>
-        </div>
-      </section>
-
-    
-
-      <!-- Videos -->
-      <section id="videos">
-        <div class="container">
-          <div class="section-header">
-            <h2 class="section-title">Videos</h2>
-            <p class="section-subtitle">
-              All videos are written, shot, and produced by Dub &amp; Troll, blending cinematic energy with everyday charm.
-            </p>
-          </div>
-
-          <div class="video-grid">
-            <div class="video-card">
-              <!-- Replace src with a real YouTube embed link -->
-              <iframe
-                class="video-frame"
-                src="https://www.youtube.com/embed/ejN9U4Kbp5w?si=SM3k7YQPnDTxoZn7"
-                title="Dub &amp; Troll music video"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen>
-              </iframe>
-              <div class="video-title">Every Day I Aldi</div>
-              <div class="video-desc">
-                A fan-favorite music video about shopping at Aldi
-              </div>
-            </div>
-
-            <div class="video-card">
-              <iframe
-                class="video-frame"
-                src="https://www.youtube.com/embed/JKfUgsDO9tI?si=oFAa_ueG3L2La5u9"
-                title="Dub &amp; Troll music video"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen>
-              </iframe>
-              <div class="video-title">West Coast Holiday</div>
-              <div class="video-desc">
-                A Christmas song for everyone on the West Coast!
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-     
-
-      
-
-      <!-- Contact -->
-      <section id="contact">
-        <div class="container">
-          <div class="section-header">
-            <h2 class="section-title">Contact</h2>
-            <p class="section-subtitle">
-              Booking, collaborations, playlist features, or just a note to say you found your state song.
-            </p>
-          </div>
-
-          <div class="contact-layout">
-            <div>
-              <p style="color:var(--text-muted); margin-bottom:1rem;">
-                For booking, press, or creative collaboration, start with email. For casual conversation and quick updates, connect on social platforms.
-              </p>
-              <div class="hero-buttons" style="margin-bottom:0;">
-                <a class="btn btn-primary" href="mailto:dubandtroll@gmail.com">
-                  Email Dub &amp; Troll
-                </a>
-                <a class="btn btn-outline" href="https://www.youtube.com/@DubAndTroll" target="_blank" rel="noopener noreferrer">
-                  Visit YouTube
-                </a>
-              </div>
-            </div>
-            <div>
-              <div class="link-list">
-                <a class="link-pill" href="https://open.spotify.com/artist/6875fMGQ2v61jJLpEcojSX" target="_blank" rel="noopener noreferrer">
-                  <strong>Spotify</strong> artist page
-                </a>
-                <a class="link-pill" href="https://www.youtube.com/@DubAndTroll" target="_blank" rel="noopener noreferrer">
-                  <strong>YouTube</strong> channel
-                </a>
-                <!-- Add more when ready -->
-                <!--
-                <a class="link-pill" href="#" target="_blank" rel="noopener noreferrer">
-                  <strong>Instagram</strong> profile
-                </a>
-                <a class="link-pill" href="#" target="_blank" rel="noopener noreferrer">
-                  <strong>Facebook</strong> page
-                </a>
-                -->
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <div class="container">
-        <div>© <span id="year"></span> Dub &amp; Troll. All rights reserved.</div>
-        <div>Christmas Across America · Fifty states. Fifty songs.</div>
-      </div>
-    </footer>
-  </div>
+      <footer>
+        <div>© <span id="year"></span> Dub and Troll. All rights reserved.</div>
+        <div class="tiny">Replace the images and links in this file to go live on GitHub Pages.</div>
+      </footer>
+    </div>
+  </main>
 
   <script>
-    // mobile nav toggle
-    const navToggle = document.getElementById("navToggle");
-    const navLinks = document.getElementById("navLinks");
-
-    navToggle.addEventListener("click", function () {
-      navLinks.classList.toggle("open");
-    });
-
-    // footer year
-    document.getElementById("year").textContent = new Date().getFullYear();
+    // Minimal JS: current year only.
+    (function(){
+      var y = document.getElementById("year");
+      if(y) y.textContent = new Date().getFullYear();
+    })();
   </script>
+
+  <!--
+    REPLACEMENT NOTES
+    1) Background image: "background.jpg" recommended 1920x3000 or larger, portrait friendly.
+    2) Logo: "logo.png" recommended 1200x400, transparent background.
+    3) Band photo: "band-photo.jpg" recommended 1200x1200.
+    4) Album art: "album-art.jpg" recommended 1600x1600.
+    5) Update link href values in the <nav> anchors to your real destinations.
+    6) Update "Your New Single Title" and the primary CTA link in the Latest Release card.
+  -->
 </body>
 </html>
